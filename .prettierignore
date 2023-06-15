@@ -1,0 +1,10 @@
+build
+.next
+node_modules
+package-lock.json
+package.json
+.gitignore
+.env*.local
+.eslintrc.json
+.prettierrc.json
+README.md
