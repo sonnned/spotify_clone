@@ -26,6 +26,7 @@ SPOTIFY_CLIENT_SECRET=YOUR_SPOTIFY_CLIENT_SECRET
 NEXTAUTH_URL=http://localhost:3000
 JWT_SECRET=YOUR_JWT_SECRET
 ```
+<p>Also you can got to the <strong>.env.example</strong> file and rename it to <strong>.env.local</strong> and add the variables</p>
 
 <p>Then you need to install the dependencies of the project</p>
 
