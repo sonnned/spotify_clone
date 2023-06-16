@@ -67,7 +67,7 @@ const Sidebar = () => {
           : new Array(5)
               .fill(0)
               .map((_, index) => (
-                <p className="h-5 w-full bg-gray-600 animate-pulse rounded"></p>
+                <p className="h-5 w-full bg-gray-600 animate-pulse rounded" key={index}></p>
               ))}
       </div>
     </div>
