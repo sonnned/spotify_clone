@@ -22,7 +22,7 @@ const Sidebar = () => {
       spotifyApi.getUserPlaylists().then((data) => {
         setPlaylists(data.body.items);
 
-        if (data.body.items.length > 0) {
+        if (data.body.items.length > 0 && !playlistId) {
           setPlaylistId(data.body.items[0].id);
         }
       });

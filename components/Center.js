@@ -7,7 +7,7 @@ import { useRecoilState, useRecoilValue } from 'recoil';
 import useSpotify from '@/hooks/useSpotify';
 import Songs from './Songs';
 import { userProductState } from '@/atoms/userAtom';
-import Image from 'next/image';
+
 
 const colors = [
   'from-indigo-500',
@@ -57,7 +57,7 @@ const Center = () => {
           <div
             className="flex items-center bg-black space-x-3 opacity-90 hover:opacity-80 cursor-pointer rounded-full p-1 pr-2 text-white"
             onClick={() => signOut()}>
-            <Image
+            <img
               className="rounded-full"
               src={session?.user?.image}
               width={40}
@@ -72,7 +72,7 @@ const Center = () => {
       {playlist ? (
         <section
           className={`flex items-end space-x-7 bg-gradient-to-b to-black ${color} h-80 text-white p-8`}>
-          <Image
+          <img
             className="h-44 w-44 shadow-2xl"
             src={playlist?.images?.[0]?.url}
             width={200}

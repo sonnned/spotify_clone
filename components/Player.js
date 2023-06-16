@@ -24,7 +24,6 @@ import { useCallback, useEffect, useState } from 'react';
 import { useRecoilState, useRecoilValue } from 'recoil';
 import { playlistState } from '@/atoms/playlistAtom';
 import { userProductState } from '@/atoms/userAtom';
-import Image from 'next/image';
 
 const Player = () => {
   const spotifyApi = useSpotify();
@@ -163,7 +162,7 @@ const Player = () => {
             />
           </div>
           <div className="flex items-center space-x-4">
-            <Image
+            <img
               className="hidden md:inline h-10 w-10"
               src={songInfo?.album.images?.[0].url}
               width={40}

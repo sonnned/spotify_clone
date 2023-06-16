@@ -6,7 +6,6 @@ import {
 import { userProductState } from '@/atoms/userAtom';
 import useSpotify from '@/hooks/useSpotify';
 import { millisToMinutes } from '@/lib/time';
-import Image from 'next/image';
 import { useRecoilState, useRecoilValue } from 'recoil';
 
 const Song = ({ order, track }) => {
@@ -38,7 +37,7 @@ const Song = ({ order, track }) => {
       onClick={() => playSong()}>
       <div className="flex items-center space-x-4">
         <p>{order + 1}</p>
-        <Image
+        <img
           className="h-10 w-10 rounded"
           src={track.track.album.images[0].url}
           width={40}
