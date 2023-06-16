@@ -8,7 +8,6 @@ import useSpotify from '@/hooks/useSpotify';
 import Songs from './Songs';
 import { userProductState } from '@/atoms/userAtom';
 
-
 const colors = [
   'from-indigo-500',
   'from-blue-500',
@@ -74,7 +73,10 @@ const Center = () => {
           className={`flex items-end space-x-7 bg-gradient-to-b to-black ${color} h-80 text-white p-8`}>
           <img
             className="h-44 w-44 shadow-2xl"
-            src={playlist?.images?.[0]?.url}
+            src={
+              playlist?.images?.[0]?.url ||
+              'https://source.unsplash.com/featured/300x201'
+            }
             width={200}
             height={200}
             alt={playlist?.name}

@@ -20,7 +20,7 @@ const Songs = () => {
 
   useEffect(() => {
     if (playlist) {
-      setCurrentTrackId(playlist.tracks.items[0].track.id);
+      setCurrentTrackId(playlist.tracks.items[0]?.track.id);
       setCurrentSongIndex(0);
     }
   }, [playlist]);
