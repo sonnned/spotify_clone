@@ -55,15 +55,20 @@ const Sidebar = () => {
           <p>Liked songs</p>
         </button>
         <hr className="border-t-[0.1px] border-gray-900" />
-
-        {playlists.map((playlist, index) => (
-          <p
-            className="cursor-pointer hover:text-white"
-            key={index}
-            onClick={() => setPlaylistId(playlist.id)}>
-            {playlist.name}
-          </p>
-        ))}
+        {playlists.length
+          ? playlists.map((playlist, index) => (
+              <p
+                className="cursor-pointer hover:text-white"
+                key={index}
+                onClick={() => setPlaylistId(playlist.id)}>
+                {playlist.name}
+              </p>
+            ))
+          : new Array(5)
+              .fill(0)
+              .map((_, index) => (
+                <p className="h-5 w-full bg-gray-600 animate-pulse rounded"></p>
+              ))}
       </div>
     </div>
   );

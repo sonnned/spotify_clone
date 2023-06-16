@@ -31,18 +31,19 @@ const Song = ({ order, track }) => {
 
   return (
     <div
-      className="grid grid-cols-2 text-gray-500 py-4 px-5 hover:bg-gray-900 rounded-lg cursor-pointer"
+      className={`grid grid-cols-2 text-gray-500 py-4 px-5 hover:bg-gray-900 rounded-lg cursor-pointer ${
+        currentSongIndex === order && 'bg-gray-900'
+      } transition duration-200 ease-in-out`}
       onClick={() => playSong()}>
       <div className="flex items-center space-x-4">
         <p>{order + 1}</p>
         <img
-          className="h-10 w-10"
+          className="h-10 w-10 rounded"
           src={track.track.album.images[0].url}
           alt={track.track.name}
         />
         <div>
           <p className="w-36 lg:w-64 truncate text-white">{track.track.name}</p>
-          <p className="w-40">{track.track.artist?.[0].name}</p>
         </div>
       </div>
       <div className="flex items-center justify-between ml-auto md:ml-0">

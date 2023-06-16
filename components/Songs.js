@@ -7,6 +7,7 @@ import {
   isPlayingState,
 } from '@/atoms/songAtom';
 import { useEffect } from 'react';
+import SongSkeleton from './SongSkeleton';
 
 const Songs = () => {
   const playlist = useRecoilValue(playlistState);
@@ -26,9 +27,11 @@ const Songs = () => {
 
   return (
     <div className="text-white px-8 flex flex-col space-y-1 pb-28">
-      {playlist?.tracks.items.map((track, index) => (
-        <Song key={track.track.id} track={track} order={index} />
-      ))}
+      {playlist?.tracks.items.length
+        ? playlist?.tracks.items.map((track, index) => (
+            <Song key={track.track.id} track={track} order={index} />
+          ))
+        : new Array(10).fill(0).map((_, index) => <SongSkeleton key={index} />)}
     </div>
   );
 };

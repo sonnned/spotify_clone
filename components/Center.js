@@ -52,32 +52,45 @@ const Center = () => {
   return (
     <div className="flex-grow h-screen overflow-y-scroll scrollbar-hide">
       <header className="absolute top-5 right-8">
-        <div
-          className="flex items-center bg-black space-x-3 opacity-90 hover:opacity-80 cursor-pointer rounded-full p-1 pr-2 text-white"
-          onClick={() => signOut()}>
+        {session && (
+          <div
+            className="flex items-center bg-black space-x-3 opacity-90 hover:opacity-80 cursor-pointer rounded-full p-1 pr-2 text-white"
+            onClick={() => signOut()}>
+            <img
+              className="rounded-full w-10 h-10"
+              src={session?.user?.image}
+              alt=""
+            />
+            <h2>{session?.user.name}</h2>
+            <ChevronDownIcon className="h-5 w-5" />
+          </div>
+        )}
+      </header>
+      {playlist ? (
+        <section
+          className={`flex items-end space-x-7 bg-gradient-to-b to-black ${color} h-80 text-white p-8`}>
           <img
-            className="rounded-full w-10 h-10"
-            src={session?.user?.image}
+            className="h-44 w-44 shadow-2xl"
+            src={playlist?.images?.[0]?.url}
             alt=""
           />
-          <h2>{session?.user.name}</h2>
-          <ChevronDownIcon className="h-5 w-5" />
-        </div>
-      </header>
-      <section
-        className={`flex items-end space-x-7 bg-gradient-to-b to-black ${color} h-80 text-white p-8`}>
-        <img
-          className="h-44 w-44 shadow-2xl"
-          src={playlist?.images?.[0]?.url}
-          alt=""
-        />
-        <div>
-          <p>PLAYLIST</p>
-          <h1 className="text-2xl md:text-3xl xl:text-5xl font-bold">
-            {playlist?.name}
-          </h1>
-        </div>
-      </section>
+          <div>
+            <p>PLAYLIST</p>
+            <h1 className="text-2xl md:text-3xl xl:text-5xl font-bold">
+              {playlist?.name}
+            </h1>
+          </div>
+        </section>
+      ) : (
+        <section
+          className={`flex items-end space-x-7 bg-gradient-to-b to-black ${color} h-80 text-white p-8 `}>
+          <div className="h-44 w-44 shadow-2xl bg-gray-600 rounded animate-pulse"></div>
+          <div>
+            <p className="h-5 w-24 bg-gray-600 animate-pulse rounded mb-2"></p>
+            <h1 className="md:text-3xl xl:text-5xl h-10 w-28 bg-gray-600 animate-pulse rounded"></h1>
+          </div>
+        </section>
+      )}
       <div>
         <Songs />
       </div>
