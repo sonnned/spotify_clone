@@ -4,6 +4,7 @@ import {
   BuildingLibraryIcon,
   PlusCircleIcon,
   HeartIcon,
+  XMarkIcon,
 } from '@heroicons/react/24/outline';
 import { useSession } from 'next-auth/react';
 import { useEffect, useState } from 'react';
@@ -12,7 +13,7 @@ import { useRecoilState } from 'recoil';
 import { playlistAtom, playlistState } from '@/atoms/playlistAtom';
 import { delay } from 'lodash';
 
-const Sidebar = () => {
+const Sidebar = ({ setShowSidebar, showSidebar }) => {
   const spotifyApi = useSpotify();
   const { data: session, status } = useSession();
   const [playlists, setPlaylists] = useState([]);
@@ -40,8 +41,17 @@ const Sidebar = () => {
   };
 
   return (
-    <div className="text-gray-500 p-5 text-sm border-r border-gray-900 overflow-y-scroll h-screen scrollbar-hide lg:text-sm sm:max-w-[12rem] lg:max-w-[15rem] hidden md:inline-flex pb-36">
-      <div className="space-y-4">
+    <div
+      className={`text-gray-500 p-5 text-sm border-r border-gray-900 overflow-y-scroll h-screen scrollbar-hide lg:text-sm sm:max-w-[12rem] lg:max-w-[15rem] absolute sm:relative top-0 right-0 left-0 bottom-0 z-50 bg-black md:inline-flex pb-36 ${
+        !showSidebar && 'hidden'
+      }`}>
+      <div className="space-y-4 relative">
+        <div className="absolute right-0 sm:hidden">
+          <XMarkIcon
+            className="h-14 w-14 cursor-pointer"
+            onClick={() => setShowSidebar(!showSidebar)}
+          />
+        </div>
         <button className="flex items-center space-x-2 hover:text-white">
           <HomeIcon className="h-5 w-5" />
           <p>Home</p>
