@@ -35,6 +35,7 @@ const Sidebar = ({ setShowSidebar, showSidebar }) => {
   const handlePlaylistClick = (id) => {
     setPlaylistId('');
     setPlaylist(null);
+    setShowSidebar(false);
     delay(function () {
       setPlaylistId(id);
     }, 500);
